@@ -1,1 +1,3 @@
-# Brainwave-EdTech
+# Ed-tech-Platform
+
+BrainWave Academy
