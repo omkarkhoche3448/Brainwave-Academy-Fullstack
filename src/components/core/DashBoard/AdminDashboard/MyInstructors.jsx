@@ -72,47 +72,47 @@ const MyInstructors = () => {
   };
 
   return (
-    <div className="p-4">
-      <div className="sticky flex items-center flex-col lg:justify-between flex-1 rounded-md border-[1px] border-richblack-700 bg-richblack-800 p-6 ">
-        <h1 className="text-2xl font-bold p-2 lg:p-0 md:p-2 text-white">
+    <div className="p-4 lg:p-6 bg-richblack-900 min-h-screen">
+      {/* Header Section */}
+      <div className="  flex flex-col items-center bg-richblack-800 border border-richblack-700 rounded-md p-4 lg:p-6 mb-4">
+        <h1 className="text-2xl lg:text-3xl font-bold text-white mb-2">
           My Instructors
         </h1>
-        <p className=" text-sm lg:text-md text-richblack-5">
+        <p className="text-sm lg:text-md text-richblack-200">
           ⚡ Total Earnings: ₹{totalEarnings.toFixed(2)}
         </p>
       </div>
-      <p className=" text-richblack-50 mt-4 text-md">
-        Here you can manage your instructors <span className="text-xl">😄</span>
-        .
-      </p>
 
-      <div className="text-white mt-5">
-        <h1 className="text-2xl font-bold mb-2 text-yellow-50  ">
+      {/* Instructors List */}
+      <div className="mt-5 text-white">
+        <h2 className="text-2xl lg:text-3xl font-bold mb-4 text-yellow-50">
           Instructors List
-        </h1>
-        <ul>
+        </h2>
+        <ul className="space-y-4">
           {instructors.map((instructor) => (
-            <li key={instructor._id} className="mt-4">
-              <div className="flex justify-between items-center">
+            <li
+              key={instructor._id}
+              className="bg-richblack-800 border border-richblack-700 rounded-md p-4 lg:p-6"
+            >
+              <div className="flex flex-col lg:flex-row justify-between items-start lg:items-center">
                 <div>
-                  <h3 className="text-lg font-semibold">{instructor.name}</h3>
-                  <p className="text-sm mt-2">
+                  <h3 className="text-lg lg:text-xl font-semibold mb-2">
+                    {instructor.name}
+                  </h3>
+                  <p className="text-sm lg:text-base mb-2">
                     Total Contribution of Instructor: ₹
                     {instructor.totalEarnings.toFixed(2)}
                   </p>
-                  <ul className="ml-8 mt-3">
+                  <ul className="ml-0 lg:ml-8 mt-2 lg:mt-4 space-y-2">
                     {instructor.courses.map((course) => (
-                      <li key={course._id} className="mb-2">
-                        <span className="text-md">
-                          {course.name} - Earnings: ₹
-                          {course.earnings.toFixed(2)}
-                        </span>
+                      <li key={course._id} className="text-sm lg:text-base">
+                        {course.name} - Earnings: ₹{course.earnings.toFixed(2)}
                       </li>
                     ))}
                   </ul>
                 </div>
                 <button
-                  className="p-2 text-pink-200"
+                  className="mt-4 lg:mt-0 px-4 py-2 bg-pink-600 text-white rounded-lg hover:bg-pink-700 transition"
                   onClick={() => handleConfirmModal(instructor)}
                 >
                   Delete Instructor
@@ -123,6 +123,7 @@ const MyInstructors = () => {
         </ul>
       </div>
 
+      {/* Confirmation Modal */}
       {confirmationModal && (
         <ConfirmationModals modalData={confirmationModal} />
       )}

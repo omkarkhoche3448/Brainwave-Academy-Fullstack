@@ -5,7 +5,6 @@ import "swiper/css";
 import "swiper/css/free-mode";
 import "swiper/css/autoplay";
 import "swiper/css/pagination";
-import "../../App.css";
 import { FaStar } from "react-icons/fa";
 import { Autoplay, FreeMode, Pagination } from "swiper/modules";
 import { apiConnector } from "../../services/apiConnector";
@@ -34,11 +33,12 @@ function ReviewSlider() {
     fetchReviews();
   }, []);
 
-  console.log(reviews);
-
   return (
-    <div className="text-white">
-      <div className="my-[50px] h-[184px] max-w-maxContentTab lg:max-w-maxContent mx-auto">
+    <div className="text-white w-full mx-auto mt-12">
+      <h2 className="font-inter font-semibold text-2xl md:text-4xl mb-8">
+        Reviews From Other Learners
+      </h2>
+      <div className="my-[50px] h-[184px] lg:max-w-maxContent mx-auto">
         <Swiper
           slidesPerView={4}
           spaceBetween={25}
@@ -49,11 +49,11 @@ function ReviewSlider() {
             disableOnInteraction: false,
           }}
           modules={[FreeMode, Pagination, Autoplay]}
-          className="w-full lg:h-[250px]"
+          className="lg:w-full lg:h-[250px]"
         >
           {reviews.map((review, i) => (
             <SwiperSlide key={i}>
-              <div className="flex flex-col h-fit lg:gap-3 bg-richblack-800 p-3  text-sm lg:text-[14px] text-richblack-25">
+              <div className="flex flex-col h-full lg:gap-3 bg-richblack-800 p-3 rounded-xl text-sm lg:text-[14px] text-richblack-25">
                 <div className="flex flex-col items-center gap-4">
                   <img
                     src={`https://api.dicebear.com/5.x/initials/svg?seed=${review?.user?.firstName} ${review?.user?.lastName}`}
@@ -62,7 +62,7 @@ function ReviewSlider() {
                   />
                   <div className="flex flex-col">
                     <h1 className="font-semibold text-richblack-5">{`${review?.user?.firstName} ${review?.user?.lastName}`}</h1>
-                    <h2 className="lg:text-[14px]  font-medium text-richblack-500">
+                    <h2 className="lg:text-[14px] font-medium text-richblack-500">
                       {review?.course?.courseName}
                     </h2>
                   </div>

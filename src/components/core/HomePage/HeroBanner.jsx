@@ -6,7 +6,7 @@ import HighlightText from "./HighlightText";
 const HeroBanner = () => {
   return (
     <motion.section
-      className="relative bg-gray-900 text-white py-10 md:py-20 overflow-hidden lg:w-full md:w-full lg:ml-0 ml-9 w-[350px]"
+      className="relative bg-gray-900 text-white py-10 md:py-20 overflow-hidden lg:w-full md:w-full lg:ml-0 mx-auto w-[350px]"
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ duration: 1 }}
