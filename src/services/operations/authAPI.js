@@ -1,5 +1,6 @@
 import { toast } from "react-hot-toast";
 import { setLoading, setToken } from "../../slices/authSlice";
+import { resetCart } from "../../slices/cartSlice";
 import { setUser } from "../../slices/profileSlice";
 import { apiConnector } from "../apiConnector";
 import { endpoints } from "../api";
@@ -121,6 +122,7 @@ export function logout(navigate) {
     localStorage.removeItem("token");
     localStorage.removeItem("user");
     localStorage.removeItem("cart");
+    dispatch(resetCart());
     toast.success("Logged Out");
     navigate("/");
   };

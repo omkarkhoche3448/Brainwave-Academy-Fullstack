@@ -60,7 +60,7 @@ function Navbar() {
 
   return (
     <div>
-      <div className="h-14 mx-auto flex flex-row justify-evenly items-center border-b-[1px] border-b-richblack-700 transition-all duration-200">
+      <div className="h-14 mx-auto flex flex-row justify-evenly lg:p-0 p-2 items-center border-b-[1px] border-b-richblack-700 transition-all duration-200">
         <Link to={"/"}>
           <img src={Logo} alt="Logo" height={50} width={190} loading="lazy" />
         </Link>
@@ -125,11 +125,8 @@ function Navbar() {
         </nav>
 
         <div className="flex items-center gap-x-4 text-richblack-100">
-          {user && user.accountType !== ACCOUNT_TYPE.ADMIN && (
+          {user && user.accountType === ACCOUNT_TYPE.STUDENT && (
             <div className="relative flex items-center gap-x-4">
-              <Link to="/search" className="flex items-center">
-                <ImSearch className="w-5 h-5" />
-              </Link>
               <Link to="/dashboard/cart" className="flex items-center">
                 <AiOutlineShoppingCart className="text-2xl text-richblack-100" />
                 {totalItems > 0 && (

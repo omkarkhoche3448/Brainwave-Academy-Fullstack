@@ -3,6 +3,7 @@ import { useSelector } from "react-redux";
 import frameImg from "../../../assets/Images/frame.png";
 import LoginForm from "./LoginForm";
 import SignupForm from "./SignupForm";
+import TestCredentials from "./TestCredentials";
 
 function Template({ title, description1, description2, image, formType }) {
   const { loading } = useSelector((state) => state.auth);
@@ -43,21 +44,18 @@ function Template({ title, description1, description2, image, formType }) {
             transition={{ duration: 0.5 }}
             className="relative mx-auto w-11/12 max-w-[450px] md:mx-0"
           >
-            <img
-              src={frameImg}
-              alt="Pattern"
-              width={558}
-              height={504}
-              loading="lazy"
-            />
-            <img
-              src={image}
-              alt="Students"
-              width={558}
-              height={490}
-              loading="lazy"
-              className="absolute -top-4 right-4 z-10"
-            />
+            {formType === "signup" ? (
+              <img
+                src={image}
+                alt="Students"
+                width={558}
+                height={490}
+                loading="lazy"
+                className="absolute -top-4 right-4 z-10"
+              />
+            ) : (
+              <TestCredentials />
+            )}
           </motion.div>
         </motion.div>
       )}

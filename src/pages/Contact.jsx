@@ -2,6 +2,7 @@ import React from "react";
 import { motion } from "framer-motion";
 import ContactDetails from "../components/ContactPage/ContactDetails";
 import ContactUsForm from "../components/common/ContactUsForm";
+import ReviewSlider from "../components/common/ReviewSlider";
 
 function Contact() {
   return (
@@ -35,6 +36,7 @@ function Contact() {
           <ContactUsForm />
         </motion.div>
       </div>
+      <ReviewSlider />
     </div>
   );
 }

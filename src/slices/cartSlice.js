@@ -23,7 +23,7 @@ const cartSlice = createSlice({
 
       if (index >= 0) {
         toast.error("Course already in cart");
-        return state; // Return state to prevent further execution
+        return state;
       }
 
       state.cart.push(course);
@@ -46,10 +46,8 @@ const cartSlice = createSlice({
         state.total -= removedPrice;
         state.cart.splice(index, 1);
 
-        // Recalculate total based on the prices of remaining items
         state.total = state.cart.reduce((acc, curr) => acc + curr.price, 0);
 
-        // Update to localstorage
         localStorage.setItem("cart", JSON.stringify(state.cart));
         localStorage.setItem("total", JSON.stringify(state.total));
         localStorage.setItem("totalItems", JSON.stringify(state.totalItems));
@@ -68,7 +66,6 @@ const cartSlice = createSlice({
     },
   },
 });
-
 
 export const { addToCart, removeFromCart, resetCart } = cartSlice.actions;
 
