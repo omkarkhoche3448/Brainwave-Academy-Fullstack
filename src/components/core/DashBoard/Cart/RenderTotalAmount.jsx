@@ -12,7 +12,7 @@ export default function RenderTotalAmount() {
   const userId = user._id;
 
   const handleBuyNow = async () => {
-    console.log("buying Course");
+    // console.log("buying Course");
     try {
       await buyCourse(token, cart, dispatch);
     } catch (error) {
