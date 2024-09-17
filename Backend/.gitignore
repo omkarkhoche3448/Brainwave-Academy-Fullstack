@@ -1,3 +1,9 @@
+# Existing ignore for environment files
 .env
 .env.local
 .env.production
+
+# Add these if not already present
+.env.development
+.env.test
+.env.*   # This covers any additional .env files with custom suffixes
