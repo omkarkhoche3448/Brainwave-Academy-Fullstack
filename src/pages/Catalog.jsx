@@ -57,7 +57,10 @@ const Catalog = () => {
   }, [categoryId]);
 
   if (loading) {
-    return <div className="spinner"></div>;
+    return;
+    <div className="flex h-screen items-center justify-center">
+      <div className="spinner" />
+    </div>;
   }
 
   if (!catalogPageData) {

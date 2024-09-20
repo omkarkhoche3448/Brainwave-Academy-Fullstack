@@ -17,7 +17,7 @@ export function getUserDetails(token, navigate) {
         const toastId = toast.loading("Loading...");
         dispatch(setLoading(true));
         try {
-            console.log(token);
+            // console.log(token);
             const response = await apiConnector("GET", GET_USER_DETAILS_API, {
                 Authorization: `Bearer ${token}`,
             });
@@ -57,7 +57,7 @@ export async function getUserEnrolledCourses(token) {
                 Authorization: `Bearer ${token}`,
             }
         )
-        console.log("GET_USER_ENROLLED_COURSES_API API RESPONSE.....", response)
+        // console.log("GET_USER_ENROLLED_COURSES_API API RESPONSE.....", response)
 
         if (!response.data.success) {
             throw new Error(response.data.message)
@@ -83,7 +83,7 @@ export async function getInstructorData(token) {
                 Authorization: `Bearer ${token}`,
             })
 
-        console.log("GET_INSTRUCTOR_API_RESPONSE", response);
+        // console.log("GET_INSTRUCTOR_API_RESPONSE", response);
         result = response?.data?.courses
 
     }

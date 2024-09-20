@@ -23,7 +23,7 @@ function CourseDetails() {
   const navigate = useNavigate();
 
   const { courseId } = useParams();
-  console.log(`course id: ${courseId}`);
+  // console.log(`course id: ${courseId}`);
 
   const [response, setResponse] = useState(null);
   const [confirmationModal, setConfirmationModal] = useState(null);
@@ -32,7 +32,7 @@ function CourseDetails() {
     (async () => {
       try {
         const res = await fetchCourseDetails(courseId);
-        console.log("course details res: ", res);
+        // console.log("course details res: ", res);
         setResponse(res);
       } catch (error) {
         console.log("Could not fetch Course Details");
@@ -40,7 +40,7 @@ function CourseDetails() {
     })();
   }, [courseId]);
 
-  console.log("response: ", response);
+  // console.log("response: ", response);
 
   // Calculating Avg Review count
   const [avgReviewCount, setAvgReviewCount] = useState(0);
@@ -48,11 +48,11 @@ function CourseDetails() {
     const count = GetAvgRating(response?.data?.courseDetails.ratingAndReviews);
     setAvgReviewCount(count);
   }, [response]);
-  console.log("avgReviewCount: ", avgReviewCount);
+  // console.log("avgReviewCount: ", avgReviewCount);
 
   const [isActive, setIsActive] = useState(Array(0));
   const handleActive = (id) => {
-    console.log("called", id);
+    // console.log("called", id);
     setIsActive(
       !isActive.includes(id)
         ? isActive.concat([id])
@@ -111,7 +111,7 @@ function CourseDetails() {
   };
 
   if (paymentLoading) {
-    console.log("payment loading"); 
+    // console.log("payment loading"); 
     return (
       <div className="grid min-h-[calc(100vh-3.5rem)] place-items-center">
         <div className="spinner"></div>

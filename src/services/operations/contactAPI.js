@@ -8,9 +8,9 @@ export function contactForm(data) {
     return async () => {
         const toastId = toast.loading("Loading...");
         try {
-            console.log("Data to be sent:", data);
+            // console.log("Data to be sent:", data);
             const response = await apiConnector("POST", CONTACT_US_API, data);
-            console.log("CONTACT_US_API RESPONSE:", response);
+            // console.log("CONTACT_US_API RESPONSE:", response);
 
             if (response.status !== 201) {
                 throw new Error(response.statusText);

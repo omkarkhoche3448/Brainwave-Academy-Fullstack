@@ -1,7 +1,8 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import CountUp from "react-countup";
 
 const Stats = () => {
+  const [hasAnimated, setHasAnimated] = useState(false);
   const stats = [
     { label: "Students Enrolled", value: 4519 },
     { label: "Courses Available", value: 120 },
@@ -9,8 +10,12 @@ const Stats = () => {
     { label: "Lessons Completed", value: 85204 },
   ];
 
+  useEffect(() => {
+    setHasAnimated(true);
+  }, []);
+
   return (
-    <div className="text-center w-full  text-white">
+    <div className="text-center w-full text-white">
       <h2 className="text-3xl font-bold mb-16">
         Trusted by thousands of students and educators worldwide
       </h2>
@@ -19,14 +24,17 @@ const Stats = () => {
         {stats.map((stat, index) => (
           <div key={index} className="flex flex-col items-center">
             <h3 className="text-4xl font-bold mb-2">
-              <CountUp
-                start={1}
-                end={stat.value}
-                duration={2.5}
-                separator=","
-                enableScrollSpy
-                scrollSpyDelay={100}
-              />
+              {/* Conditionally render the CountUp component once */}
+              {hasAnimated ? (
+                <CountUp
+                  start={0}
+                  end={stat.value}
+                  duration={2.5}
+                  separator=","
+                />
+              ) : (
+                stat.value
+              )}
               +
             </h3>
             <p className="text-lg">{stat.label}</p>

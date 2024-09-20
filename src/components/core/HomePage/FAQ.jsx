@@ -73,7 +73,7 @@ const FAQ = () => {
           <p className="text-base">
             Still confused? Feel free to contact us at{" "}
             <a href="mailto:support@automatic.chat" className="text-yellow-300">
-              support@Brainwave Academy.chat
+              support@brainwaveacademy.chat
             </a>
           </p>
         </div>

@@ -35,7 +35,7 @@ function ReviewSlider() {
 
   return (
     <div className="text-white w-full mx-auto mt-12">
-      <h2 className="font-inter text-cnetre font-semibold text-2xl md:text-4xl mb-8">
+      <h2 className="font-inter text-center font-semibold text-2xl md:text-4xl mb-8">
         Reviews From Other Learners
       </h2>
       <div className="my-[50px] h-[184px] lg:max-w-maxContent mx-auto">

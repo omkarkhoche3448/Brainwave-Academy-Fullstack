@@ -85,7 +85,7 @@ function Navbar() {
                           translate-x-[80%] translate-y-[-40%] 
                           rotate-45 select-none rounded bg-richblack-5"
                         />
-                        {subLinks.length ? (
+                        {subLinks?.length ? (
                           <>
                             {subLinks.map((subLink, index) => (
                               <Link

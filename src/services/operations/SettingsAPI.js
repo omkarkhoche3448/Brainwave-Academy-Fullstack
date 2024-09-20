@@ -24,16 +24,16 @@ export function updateDisplayPicture(token, formData) {
                     Authorization: `Bearer ${token}`,
                 }
             )
-            console.log(
-                "UPDATE_DISPLAY_PICTURE_API API RESPONSE............",
-                response
-            )
+            // console.log(
+            //     "UPDATE_DISPLAY_PICTURE_API API RESPONSE............",
+            //     response
+            // )
 
             if (!response.data.success) {
                 throw new Error(response.data.message)
             }
             toast.success("Display Picture Updated Successfully")
-            console.log("Updated Pic res", response.data.data)
+            // console.log("Updated Pic res", response.data.data)
             dispatch(setUser(response.data.data))
         } catch (error) {
             console.log("UPDATE_DISPLAY_PICTURE_API API ERROR............", error)
@@ -50,13 +50,13 @@ export function updateProfile(token, formData) {
             const response = await apiConnector("PUT", UPDATE_PROFILE_API, formData, {
                 Authorization: `Bearer ${token}`,
             })
-            console.log("UPDATE_PROFILE_API API RESPONSE............", response)
+            // console.log("UPDATE_PROFILE_API API RESPONSE............", response)
 
             if (!response.data.success) {
                 throw new Error(response.data.message)
             }
 
-            console.log("Updated Profile res", response.data.data)
+            // console.log("Updated Profile res", response.data.data)
             const userImage = response.data.updatedUserDetails.image
                 ? response.data.updatedUserDetails.image
                 : `https://api.dicebear.com/5.x/initials/svg?seed=${response.data.updatedUserDetails.firstName} ${response.data.updatedUserDetails.lastName}`
@@ -75,12 +75,12 @@ export function updateProfile(token, formData) {
 export async function changePassword(token, formData) {
     const toastId = toast.loading("Loading...")
 
-    console.log("FormData", formData)
+    // console.log("FormData", formData)
     try {
         const response = await apiConnector("POST", CHANGE_PASSWORD_API, formData, {
             Authorization: `Bearer ${token}`,
         })
-        console.log("CHANGE_PASSWORD_API API RESPONSE............", response)
+        // console.log("CHANGE_PASSWORD_API API RESPONSE............", response)
 
         if (!response.data.success) {
             throw new Error(response.data.message)
@@ -100,7 +100,7 @@ export function deleteProfile(token, navigate) {
             const response = await apiConnector("DELETE", DELETE_PROFILE_API, null, {
                 Authorization: `Bearer ${token}`,
             })
-            console.log("DELETE_PROFILE_API API RESPONSE............", response)
+            // console.log("DELETE_PROFILE_API API RESPONSE............", response)
 
             if (!response.data.success) {
                 throw new Error(response.data.message)
