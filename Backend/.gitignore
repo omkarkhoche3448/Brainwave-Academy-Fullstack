@@ -6,4 +6,9 @@
 # Add these if not already present
 .env.development
 .env.test
-.env.*   # This covers any additional .env files with custom suffixes
+.env.*  
+
+node_modules
+dist
+dist-ssr
+*.local
