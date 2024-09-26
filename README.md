@@ -1,3 +1,3 @@
 # Ed-tech-Platform
 
-BrainWave Academy
+BrainWave Academy Learn, Grow, Succeed

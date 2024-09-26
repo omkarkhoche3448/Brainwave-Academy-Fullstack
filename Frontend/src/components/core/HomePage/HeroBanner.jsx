@@ -7,7 +7,7 @@ import Spline from "@splinetool/react-spline";
 const HeroBanner = () => {
   return (
     <motion.section
-      className="relative h-screen  w-full lg:w-fit  mx-auto top-0 flex items-center justify-center overflow-hidden "
+      className="relative h-screen  w-full lg:w-fit mx-auto top-0 flex items-center justify-center overflow-hidden "
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ duration: 1 }}
