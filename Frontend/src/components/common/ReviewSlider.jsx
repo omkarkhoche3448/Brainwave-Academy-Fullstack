@@ -12,7 +12,29 @@ import { ratingsEndpoints } from "../../services/api";
 
 function ReviewSlider() {
   const [reviews, setReviews] = useState([]);
+  const [slidesPerView, setSlidesPerView] = useState(1);
   const truncateWords = 15;
+
+  const handleResize = () => {
+    const screenWidth = window.innerWidth;
+
+    if (screenWidth >= 1024) {
+      setSlidesPerView(3);
+    } else if (screenWidth >= 768) {
+      setSlidesPerView(2);
+    } else {
+      setSlidesPerView(1);
+    }
+  };
+
+  useEffect(() => {
+    handleResize();
+    window.addEventListener("resize", handleResize);
+
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
 
   useEffect(() => {
     const fetchReviews = async () => {
@@ -21,7 +43,7 @@ function ReviewSlider() {
           "GET",
           ratingsEndpoints.REVIEWS_DETAILS_API
         );
-        console.log("Reviews of Course", data.allReviews);
+        // console.log("Reviews of Course", data.allReviews);
         if (data?.success) {
           setReviews(data.allReviews);
         }
@@ -34,14 +56,14 @@ function ReviewSlider() {
   }, []);
 
   return (
-    <div className="text-white w-full mx-auto mt-12">
-      <h2 className="font-inter text-center font-semibold text-2xl md:text-4xl mb-8">
+    <div className="text-white w-full mx-auto lg:mt-12 mb-8">
+      <h2 className="font-inter text-cnetre font-semibold text-2xl md:text-4xl mb-8">
         Reviews From Other Learners
       </h2>
       <div className="my-[50px] h-[184px] lg:max-w-maxContent mx-auto">
         <Swiper
-          slidesPerView={4}
           spaceBetween={25}
+          slidesPerView={slidesPerView}
           loop={true}
           freeMode={true}
           autoplay={{

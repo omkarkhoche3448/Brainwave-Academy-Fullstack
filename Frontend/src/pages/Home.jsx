@@ -8,7 +8,7 @@ import ReviewSlider from "../components/common/ReviewSlider";
 
 function Home() {
   return (
-    <div className=" mx-auto my-[10%] text-center flex flex-col gap-16">
+    <div className="mx-auto my-1 text-center flex flex-col gap-4 lg:gap-16">
       <HeroBanner />
       <Stats />
       <Offerings />
